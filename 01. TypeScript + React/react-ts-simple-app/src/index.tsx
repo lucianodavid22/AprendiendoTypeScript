@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App title={'Hola Mundo con React + TypeScript :3'}/>
+    <App title={'Hola Mundo con React + TypeScript :3 uwu'}/>
   </React.StrictMode>
 );
 
