@@ -9,20 +9,29 @@ interface Props {
 
 /* Minuto 15 */
 export default function App({ title }: Props) {
-	const [task, setTask] = useState<Task[]>([
+	const [tasks, setTask] = useState<Task[]>([
 		{
 			id: 1,
-			title: "Learn React",
-			description: "Aprender React",
-			completed: false,
+			title: "Aprender React + TypeScript",
+			description: "Realizar app simple con React utilizando el template de TypeScript",
+			completed: true,
 		},
 	]);
 
+	const addNewTask = (task: Task) => setTask([...tasks, task ]);
+	const deleteTask = (id: number) => setTask(tasks.filter(e => e.id !== id));
+
 	return (
 		<div className="App">
-			<h1>{title}</h1>
-      <TaskForm />
-			<TaskList tasks={task} />
+			<header className="cabecera">
+				<h1>{title}</h1>
+			</header>
+			<section className="formulario">
+				<TaskForm addNewTask={addNewTask} />
+			</section>
+			<div className="tareas">
+				<TaskList tasks={tasks} deleteTask={deleteTask} />
+			</div>
 		</div>
 	);
-};
+}

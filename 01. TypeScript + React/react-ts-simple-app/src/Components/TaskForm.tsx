@@ -1,35 +1,60 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Task } from "../Interfaces/Interfaces";
 
-export default function TaskForm() {
-  const [tarea, setTarea] = useState({
-    title:"",
-    description: ""
-  });
+interface Props {
+	addNewTask: (task: Task) => void;
+};
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTarea({...tarea, [e.target.name]: e.target.value});
-  };
-  // 1 hora con 2 minutos https://www.youtube.com/watch?v=HyaT88zs2EU
-  // crear estado id y que sea autoincremental
-  // Hacer funcion submit, crea un objeto le asigna id y lo suma al arreglo task con setTask
+type InputEvent = ChangeEvent<HTMLInputElement>;
+type FormSubmitEvent = FormEvent<HTMLFormElement>;
+
+const initialState = {
+	title: "",
+	description: "",
+};
+
+export default function TaskForm({ addNewTask }: Props) {
+
+	const [tarea, setTarea] = useState(initialState);
+
+	const [ i, setI] = useState(2);
+
+	const handleInputChange = ({ target: { name, value } }: InputEvent) => {
+		setTarea({ ...tarea, [name]: value });
+	};
+
+	const handleSubmit = (e: FormSubmitEvent) => {
+		e.preventDefault();
+		setI(i + 1);
+		addNewTask({...tarea, id: i, completed: false });
+		setTarea(initialState);
+	};
+
 	return (
 		<div>
-			<h1>Agregar Tareas</h1>
-			<form>
+			<div className="titulo">
+				<h2>Agregar Tareas</h2>
+			</div>
+
+			<form onSubmit={handleSubmit}>
+			<div className="inputs">
 				<input
 					type="text"
 					placeholder="Escribe un titulo"
 					name="title"
-          onChange={handleInputChange}
-				/>
+					onChange={handleInputChange}
+					value={tarea.title}
+					/>
 				<input
 					type="text"
 					placeholder="Escribe una descripción"
 					name="description"
-          onChange={handleInputChange}
-				/>
+					onChange={handleInputChange}
+					value={tarea.description}
+					/>
 
-        <button>Guardar</button>
+			</div>
+				<button>GUARDAR</button>
 			</form>
 		</div>
 	);

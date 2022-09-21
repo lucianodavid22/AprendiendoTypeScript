@@ -1,1 +1,106 @@
+.App {
+	min-width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+    background: #091c32;
+}
 
+.cabecera {
+    background-color: #21048978;
+    color: white;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+}
+
+.formulario {
+    background-color: #233c5a86;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.formulario div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.5%;
+}
+
+.formulario div .inputs {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+.formulario div .inputs input {
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.formulario button {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px;
+    letter-spacing: 1.2pt;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.formulario button:hover {
+    background-color: rgb(2, 145, 2);
+}
+
+.card {
+    background-color: #53729e;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 5px;
+    padding: 0.4em;
+}
+
+.titlebutton {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.1em;
+    margin-bottom: 0.3em;
+}
+
+.rojo {
+    margin-top: 0.4em;
+    color: rgb(127, 20, 20);
+    font-weight: 600;
+}
+
+.verde {
+    margin-top: 0.4em;
+    color: rgb(0, 200, 0);
+    font-weight: 600;
+}
+
+.delete {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.tareas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    gap: 1em;
+}
