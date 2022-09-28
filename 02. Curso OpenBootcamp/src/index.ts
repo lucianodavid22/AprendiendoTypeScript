@@ -21,3 +21,39 @@ enum Estados {
 };
 
 let estadoTarea: Estados = Estados.Pendiente;
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+// Functions
+
+function saludar(nombre: string = "User"): void {
+    console.log(`¡Hola ${nombre}!`);
+};
+
+function despedida(nombre?: string): void{
+    if(nombre){
+        console.log(`¡Adios ${nombre}!`);
+    }
+    else{
+        console.log("¡Adios!");
+    }
+};
+
+function devolverNombre(nombre: string, apellido: string): string {
+    return `${nombre} ${apellido}`;
+};
+
+interface Empleado {
+    nombre: string;
+    apellido: string;
+    edad: number;
+};
+
+const empleado: Empleado = {
+    nombre: "Luciano",
+    apellido: "Dorregaray",
+    edad: 21
+};
+
+const datosEmpleado = (e: Empleado): string => `${e.nombre} ${e.apellido} tiene ${e.edad} anyos`;
+
