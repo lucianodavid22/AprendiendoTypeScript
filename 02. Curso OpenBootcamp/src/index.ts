@@ -57,3 +57,19 @@ const empleado: Empleado = {
 
 const datosEmpleado = (e: Empleado): string => `${e.nombre} ${e.apellido} tiene ${e.edad} anyos`;
 
+/* Persistencia de datos:
+1. LocalStorage --> Almacena los datos en el navegador (No se elimina automaticamente)
+2. SessionStorage --> Los datos persisten en la sesion del navegador
+3. Cookies --> Tienen fecha de caducidad y tambien tienen un ambito de URL
+*/
+
+// LocalStorage -> set, get, remove, clear
+function guardarEnLocalStorage (): void {
+    //clave --> valor
+localStorage.set("nombre", "Luciano");
+};
+
+function leerDeLocalStorage (): void {
+localStorage.get("nombre");
+};
+
